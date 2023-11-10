@@ -1,70 +1,96 @@
-import axios from "axios"
+import axios from "axios";
 const piotrtestAPI = axios.create({
   baseURL: "https://piotrtest-44466.botics.co",
-  headers: { Accept: "application/json", "Content-Type": "application/json" }
-})
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  }
+});
+
 function api_docs_schema_retrieve(payload) {
   return piotrtestAPI.get(`/api-docs/schema/`, {
-    params: { lang: payload.lang }
-  })
+    params: {
+      lang: payload.lang
+    }
+  });
 }
+
 function api_v1_city_list(payload) {
-  return piotrtestAPI.get(`/api/v1/city/`)
+  return piotrtestAPI.get(`/api/v1/city/`);
 }
+
 function api_v1_city_create(payload) {
-  return piotrtestAPI.post(`/api/v1/city/`, payload)
+  return piotrtestAPI.post(`/api/v1/city/`, payload);
 }
+
 function api_v1_city_retrieve(payload) {
-  return piotrtestAPI.get(`/api/v1/city/${payload.id}/`)
+  return piotrtestAPI.get(`/api/v1/city/${payload.id}/`);
 }
+
 function api_v1_city_update(payload) {
-  return piotrtestAPI.put(`/api/v1/city/${payload.id}/`, payload)
+  return piotrtestAPI.put(`/api/v1/city/${payload.id}/`, payload);
 }
+
 function api_v1_city_partial_update(payload) {
-  return piotrtestAPI.patch(`/api/v1/city/${payload.id}/`, payload)
+  return piotrtestAPI.patch(`/api/v1/city/${payload.id}/`, payload);
 }
+
 function api_v1_city_destroy(payload) {
-  return piotrtestAPI.delete(`/api/v1/city/${payload.id}/`)
+  return piotrtestAPI.delete(`/api/v1/city/${payload.id}/`);
 }
+
 function api_v1_login_create(payload) {
-  return piotrtestAPI.post(`/api/v1/login/`, payload)
+  return piotrtestAPI.post(`/api/v1/login/`, payload);
 }
+
 function api_v1_signup_create(payload) {
-  return piotrtestAPI.post(`/api/v1/signup/`, payload)
+  return piotrtestAPI.post(`/api/v1/signup/`, payload);
 }
+
 function rest_auth_login_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/login/`, payload)
+  return piotrtestAPI.post(`/rest-auth/login/`, payload);
 }
+
 function rest_auth_logout_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/logout/`)
+  return piotrtestAPI.post(`/rest-auth/logout/`);
 }
+
 function rest_auth_password_change_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/password/change/`, payload)
+  return piotrtestAPI.post(`/rest-auth/password/change/`, payload);
 }
+
 function rest_auth_password_reset_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/password/reset/`, payload)
+  return piotrtestAPI.post(`/rest-auth/password/reset/`, payload);
 }
+
 function rest_auth_password_reset_confirm_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/password/reset/confirm/`, payload)
+  return piotrtestAPI.post(`/rest-auth/password/reset/confirm/`, payload);
 }
+
 function rest_auth_registration_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/registration/`, payload)
+  return piotrtestAPI.post(`/rest-auth/registration/`, payload);
 }
+
 function rest_auth_registration_resend_email_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/registration/resend-email/`, payload)
+  return piotrtestAPI.post(`/rest-auth/registration/resend-email/`, payload);
 }
+
 function rest_auth_registration_verify_email_create(payload) {
-  return piotrtestAPI.post(`/rest-auth/registration/verify-email/`, payload)
+  return piotrtestAPI.post(`/rest-auth/registration/verify-email/`, payload);
 }
+
 function rest_auth_user_retrieve(payload) {
-  return piotrtestAPI.get(`/rest-auth/user/`)
+  return piotrtestAPI.get(`/rest-auth/user/`);
 }
+
 function rest_auth_user_update(payload) {
-  return piotrtestAPI.put(`/rest-auth/user/`, payload)
+  return piotrtestAPI.put(`/rest-auth/user/`, payload);
 }
+
 function rest_auth_user_partial_update(payload) {
-  return piotrtestAPI.patch(`/rest-auth/user/`, payload)
+  return piotrtestAPI.patch(`/rest-auth/user/`, payload);
 }
+
 export const apiService = {
   api_docs_schema_retrieve,
   api_v1_city_list,
@@ -86,4 +112,4 @@ export const apiService = {
   rest_auth_user_retrieve,
   rest_auth_user_update,
   rest_auth_user_partial_update
-}
+};

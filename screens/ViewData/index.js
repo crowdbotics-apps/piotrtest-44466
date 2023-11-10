@@ -6,8 +6,8 @@ import { SafeAreaView, ScrollView, Text, StyleSheet } from 'react-native';
 
 const ViewData = () => {
   const {
-    entities: UserDetails
-  } = useSelector(state => state.UserDetails);
+    entities: Cities
+  } = useSelector(state => state.Cities);
   const [cities, setCities] = useState([]);
   useEffect(() => {
     fetch('https://your-database-url.com/api/cities').then(response => response.json()).then(data => setCities(data)).catch(error => console.error(error));
@@ -19,7 +19,7 @@ const ViewData = () => {
           </Text>)}
       <FlatList style={styles.UiZXTRlF} renderItem={({
         item
-      }) => <View style={styles.lKFvjqAi}></View>} ItemSeparatorComponent={() => <View style={styles.CYZCLJgf} />} data={UserDetails} keyExtractor={(item, index) => index}></FlatList></ScrollView>
+      }) => <View style={styles.lKFvjqAi}></View>} ItemSeparatorComponent={() => <View style={styles.CYZCLJgf} />} data={Cities} keyExtractor={(item, index) => index}></FlatList></ScrollView>
     </SafeAreaView>;
 };
 

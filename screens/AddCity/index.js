@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import React, { useState } from 'react';
 import { SafeAreaView, TextInput, Button, StyleSheet, View, FlatList, Text } from 'react-native';
 
 const AddCityScreen = () => {
+  const {
+    entities: Cities
+  } = useSelector(state => state.Cities);
   const [city, setCity] = useState('');
   const [cities, setCities] = useState([]);
 
@@ -16,7 +20,7 @@ const AddCityScreen = () => {
   return <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput placeholder="Enter City" style={styles.input} onChangeText={setCity} value={city} />
-        <Button title="Add City" onPress={addCity} />
+        <Button title="Add City" onPress={addCity} data={Cities} />
       </View>
       <FlatList data={cities} keyExtractor={item => item.id} renderItem={itemData => <View style={styles.listItem}>
             <Text>{itemData.item.value}</Text>
