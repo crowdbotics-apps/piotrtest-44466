@@ -1,9 +1,13 @@
+import { useSelector } from "react-redux";
 import { FlatList } from "react-native";
 import { View } from "react-native";
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, Text, StyleSheet } from 'react-native';
 
 const ViewData = () => {
+  const {
+    entities: UserDetails
+  } = useSelector(state => state.UserDetails);
   const [cities, setCities] = useState([]);
   useEffect(() => {
     fetch('https://your-database-url.com/api/cities').then(response => response.json()).then(data => setCities(data)).catch(error => console.error(error));
@@ -15,7 +19,7 @@ const ViewData = () => {
           </Text>)}
       <FlatList style={styles.UiZXTRlF} renderItem={({
         item
-      }) => <View style={styles.lKFvjqAi}></View>} ItemSeparatorComponent={() => <View style={styles.CYZCLJgf} />} data={[1, 2, 3]} keyExtractor={(item, index) => index}></FlatList></ScrollView>
+      }) => <View style={styles.lKFvjqAi}></View>} ItemSeparatorComponent={() => <View style={styles.CYZCLJgf} />} data={UserDetails} keyExtractor={(item, index) => index}></FlatList></ScrollView>
     </SafeAreaView>;
 };
 
@@ -35,8 +39,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 275,
     height: 274,
-    left: 6,
-    top: 311
+    left: 42,
+    top: 38
   },
   lKFvjqAi: {
     position: "absolute",
